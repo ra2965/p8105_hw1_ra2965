@@ -1,0 +1,90 @@
+---
+title: "p8105_hw1_ra2965"
+output: github_document
+---
+
+# Problem 1
+
+##Create a data frame and try to get the mean of each variable in it
+
+
+
+```{r}
+
+library(tidyverse)
+
+hw1_df = tibble(
+  vec_numeric = rnorm(8),
+  vec_logical = vec_numeric > 0,
+  vec_char = c("a",'b','c','d','e','f','g','h'),
+  vec_factor = factor(c("low", "medium", "high", "low","medium","high","low","medium"))
+)
+  
+mean(pull(hw1_df, vec_numeric))
+
+mean(pull(hw1_df, vec_logical))
+
+mean(pull(hw1_df, vec_char))
+
+mean(pull(hw1_df, vec_factor))
+
+```
+
+I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't. 
+
+Since the vector types of the variable "vec_char"" and "vec_factor"" are not numeric or logical, there is a warning and it returns NA.
+
+##Try to convert the vectors' type:
+
+
+```{r}
+convert_log_num = as.numeric(pull(hw1_df, vec_logical))
+product_num_random = convert_log_num*pull(hw1_df, vec_numeric)
+
+convert_log_fac = as.factor(pull(hw1_df, vec_logical))
+product_fac_random = convert_log_fac*pull(hw1_df, vec_numeric)
+ 
+convert_fac_num = as.numeric(convert_log_fac)
+produc_num_num = convert_fac_num*pull(hw1_df, vec_numeric)
+
+```
+‘*’ is not meaningful for factors so I cannot get the product of factor vector and the random sample.
+
+
+#Problem 2
+
+##Create a new data frame:
+
+
+```{r}
+
+set.seed(1)
+plot_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  var_logical = c(x + y > 1),
+  var_num = as.numeric(var_logical),
+  var_fac = as.factor(var_logical))
+
+       
+```
+
+In this data frame, there are `r nrow(plot_df)` rows and `r ncol(plot_df)` colums. 
+
+The mean of x is `r mean(pull(plot_df,x))`, the median of x is `r median(pull(plot_df,x))` and the standard deviation of x is `r sd(pull(plot_df,x))`. 
+
+The proportion of cases for which x + y > 1 is `r mean(pull(plot_df,x) + pull(plot_df,y) > 1)`.
+
+Scatterplots of y vs x:
+
+```{r}
+
+ggplot(plot_df, aes(x = x, y = y, color = (var_logical))) + geom_point()
+ggsave("plot_logical.pdf")
+
+ggplot(plot_df, aes(x = x, y = y, color = (var_num))) + geom_point()
+       
+ggplot(plot_df, aes(x = x, y = y, color = (var_fac))) + geom_point()
+
+```
+

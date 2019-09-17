@@ -5,9 +5,9 @@ output: github_document
 
 # Problem 1
 
-##Create a data frame and try to get the mean of each variable in it
+##Create a data frame and try to get the means
 
-
+Create a data frame comprised of 5 vectors in 5 different data types, and try to take the means of each vector in this data frame:
 
 ```{r}
 
@@ -27,7 +27,6 @@ mean(pull(hw1_df, vec_logical))
 mean(pull(hw1_df, vec_char))
 
 mean(pull(hw1_df, vec_factor))
-
 ```
 
 I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't. 

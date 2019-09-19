@@ -97,9 +97,10 @@ print(plot_num + ggtitle("Plot2:coloring numeric vector"))
 plot_factor = ggplot(plot_df, aes(x = x, y = y, color = (var_fac))) + geom_point()
 print(plot_factor + ggtitle("Plot3:coloring factor vector"))
 ```
-For the scatterplot in which color points using the logical variabl, the FALSE points are colored as red, and the TRUE points are colored as green.
+The scatterplot coloring points using the logical vector: the FALSE points are colored as red, and the TRUE points are colored as green.
 
-For the scatterplot in which color points using the numeric variabl, the color scale is from dark blue to light blue corresponding to 0.00-1.00.
+The scatterplot coloring points using the numeric vector: the color scale is from dark blue to light blue corresponding to 0.00-1.00.
 
-For the scatterplot in which color points using the factor variabl, the FALSE points are colored as red, and the TRUE points are colored as green.
+The scatterplot coloring points using the factor vector: the FALSE points are colored as red, and the TRUE points are colored as green.
 
+The factor and logical vectors are not continious, so the color scale is binary. The numeric vector is continuous so the color scale is a continuously changing range.

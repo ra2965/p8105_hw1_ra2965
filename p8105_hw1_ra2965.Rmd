@@ -30,7 +30,8 @@ mean(pull(hw1_df, vec_factor))
 ```
 
 I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't work. 
-The mean of numeric factor is 0.2330781 and the mean of logicl vector is 0.625.
+
+Then I apply the as.numeric function to the logical, character, factor vectors: 
 ```{r}
 coerc_logical = as.numeric(pull(hw1_df,vec_logical)) 
 coerc_char = as.numeric(pull(hw1_df,vec_char))

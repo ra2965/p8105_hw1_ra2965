@@ -16,7 +16,7 @@ library(tidyverse)
 hw1_df = tibble(
   vec_numeric = rnorm(8),
   vec_logical = vec_numeric > 0,
-  vec_char = c("a",'b','c','d','e','f','g','h'),
+  vec_char = c('a','b','c','d','e','f','g','h'),
   vec_factor = factor(c("low", "medium", "high", "low","medium","high","low","medium"))
 )
   
@@ -29,7 +29,7 @@ mean(pull(hw1_df, vec_char))
 mean(pull(hw1_df, vec_factor))
 ```
 
-I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't. 
+I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't work. 
 
 Since the vector types of the variable "vec_char"" and "vec_factor"" are not numeric or logical, there is a warning and it returns NA.
 
@@ -74,7 +74,9 @@ The mean of x is `r mean(pull(plot_df,x))`, the median of x is `r median(pull(pl
 
 The proportion of cases for which x + y > 1 is `r mean(pull(plot_df,x) + pull(plot_df,y) > 1)`.
 
-Scatterplots of y vs x:
+##Scatterplots of y vs x:
+
+In the three plots, color points used three different types of variable: logical, muneric, factor
 
 ```{r}
 
@@ -86,4 +88,9 @@ ggplot(plot_df, aes(x = x, y = y, color = (var_num))) + geom_point()
 ggplot(plot_df, aes(x = x, y = y, color = (var_fac))) + geom_point()
 
 ```
+For the scatterplot in which color points using the logical variabl, the FALSE points are colored as red, and the TRUE points are colored as green.
+
+For the scatterplot in which color points using the numeric variabl, the color scale is from dark blue to light blue corresponding to 0.00-1.00.
+
+For the scatterplot in which color points using the factor variabl, the FALSE points are colored as red, and the TRUE points are colored as green.
 

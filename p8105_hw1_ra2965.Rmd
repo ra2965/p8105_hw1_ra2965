@@ -32,7 +32,7 @@ mean(pull(hw1_df, vec_factor))
 I tried to take the mean of each variable in my dataframe. Numeric vector and logical vector works, while character vector and factor vector don't work. 
 
 Then I apply the as.numeric function to the logical, character, factor vectors.
-```{r as_numeric, results='hide', warning=FALSE}
+```{r results='hide', warning=FALSE}
 coerc_logical = as.numeric(pull(hw1_df,vec_logical)) 
 coerc_char = as.numeric(pull(hw1_df,vec_char))
 coerc_factor = as.numeric(pull(hw1_df,vec_factor))
@@ -42,7 +42,7 @@ I applied the "as.numeric"" function to the logical, character, and factor varia
 The charactor vector cannot be convert to numeric, and we cannot get the mean of it.
 The factor vector can be convert to numeric, but if we want to get the mean, we need to convert it to numeric first.
 
-##Try to convert the vectors' type:
+##Try to convert vectors' type and multiply with the random sample:
 
 ```{r }
 

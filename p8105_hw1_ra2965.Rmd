@@ -83,7 +83,7 @@ The proportion of cases for which x + y > 1 is `r mean(pull(plot_df,x) + pull(pl
 
 ##Scatterplots of y vs x:
 
-In the three plots, color points used three different types of variable: logical, muneric, factor
+In the three plots, colored points used three different types of variable: logical, numeric, factor
 
 ```{r scatterplots}
 
